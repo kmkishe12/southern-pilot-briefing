@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Southern Sales Talent Pipeline Pilot — COO Briefing</title>
+    <style>
+        :root {
+            --primary: #1a5632;
+            --primary-light: #2d8a4e;
+            --accent: #f59e0b;
+            --bg: #fafbfc;
+            --card-bg: #ffffff;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+            --red: #dc2626;
+            --green: #16a34a;
+            --amber: #d97706;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .deck { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+        .slide {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+            border: 1px solid var(--border);
+            page-break-inside: avoid;
+        }
+        .slide-number {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+        h1 { font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem; }
+        h2 { font-size: 1.5rem; color: var(--primary); margin-bottom: 1rem; }
+        h3 { font-size: 1.1rem; color: var(--text); margin-bottom: 0.75rem; }
+        .subtitle { color: var(--text-light); font-size: 1rem; margin-bottom: 1.5rem; }
+        p { margin-bottom: 1rem; }
+        .highlight-box {
+            background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+            border-left: 4px solid var(--primary);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .urgency-box {
+            background: linear-gradient(135deg, #fef3c7, #fffbeb);
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .risk-box {
+            background: linear-gradient(135deg, #fef2f2, #fff5f5);
+            border-left: 4px solid var(--red);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        tr:hover td { background: #f9fafb; }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .metric-card {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        .metric-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .tag-green { background: #dcfce7; color: #166534; }
+        .tag-amber { background: #fef3c7; color: #92400e; }
+        .tag-red { background: #fee2e2; color: #991b1b; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 1.5rem 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.25rem;
+            padding-left: 1rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.65rem;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+        .timeline-item strong { display: block; margin-bottom: 0.25rem; }
+        .footer-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+        .badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .cta-box {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        .cta-box h3 { color: white; font-size: 1.2rem; }
+        .cta-box p { color: rgba(255,255,255,0.9); }
+        ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.4rem; }
+        @media (max-width: 768px) {
+            .two-col { grid-template-columns: 1fr; }
+            .slide { padding: 1.5rem; }
+            h1 { font-size: 1.5rem; }
+            .metric-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media print {
+            .slide { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+<div class="deck">
+    <!-- SLIDE 1: TITLE -->
+    <div class="slide" style="text-align:center; padding: 4rem 3rem;">
+        <div class="badge">INTERNAL — MANAGEMENT APPROVAL</div>
+        <h1 style="font-size:2.2rem;">Southern Sales Talent Pipeline<br>& Market Penetration Pilot</h1>
+        <p class="subtitle" style="font-size:1.1rem; margin-top:1rem;">COO Briefing — Pilot Experiment Approval Request</p>
+        <div style="margin-top:2rem; color:var(--text-light); font-size:0.9rem;">
+            <p><strong>Company:</strong> Verdant Solar &nbsp;|&nbsp; <strong>Region:</strong> Southern (Johor & Melaka)</p>
+            <p><strong>Segment:</strong> Residential Solar &nbsp;|&nbsp; <strong>Duration:</strong> 6 Months</p>
+            <p><strong>Prepared:</strong> July 2026</p>
+        </div>
+        <div class="urgency-box" style="text-align:left; margin-top:2rem;">
+            <strong>Time-Sensitive:</strong> SURIA Home rebate deadline 31 Dec 2026. Identified candidates available until Feb 2027 only. Every month of delay = lost rebate-eligible revenue.
+        </div>
+    </div>
+
+    <!-- SLIDE 2: THE PROBLEM -->
+    <div class="slide">
+        <div class="slide-number">Slide 2</div>
+        <h2>The Problem: Structural Hiring Failure in Southern</h2>
+        <p>Verdant Solar's Southern market faces a <strong>permanent structural challenge</strong>, not a temporary hiring difficulty:</p>
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="metric-value">3–4x</div>
+                <div class="metric-label">Singapore Wage Gap</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">350K</div>
+                <div class="metric-label">Daily JB→SG Commuters</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">4</div>
+                <div class="metric-label">Current SCs (Entire Southern)</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">8%</div>
+                <div class="metric-label">Direct Leads (Underserved)</div>
+            </div>
+        </div>
+        <table>
+            <thead><tr><th>Challenge</th><th>Impact on Hiring</th></tr></thead>
+            <tbody>
+                <tr><td>Singapore salary pull (RM2,700 vs RM13,000–16,500)</td><td>Best candidates cross the border</td></tr>
+                <tr><td>JS-SEZ competing for same local talent</td><td>Even staying local now pays RM3,500–5,000</td></tr>
+                <tr><td>Commission-based role perception</td><td>Seen as risky vs stable SG salary</td></tr>
+                <tr><td>2–4 month hiring cycle</td><td>Slow to fill, expensive when wrong</td></tr>
+                <tr><td>Melaka single-SC dependency (Tan Aik Keong)</td><td>One resignation = entire state revenue gone</td></tr>
+            </tbody>
+        </table>
+        <div class="highlight-box">
+            <strong>Key Insight:</strong> We have identified suitable candidates who are available <strong>until February 2027</strong>. This is a rare window — given our persistent hiring difficulty, failing to act now risks losing them entirely.
+        </div>
+    </div>
+
+    <!-- SLIDE 3: MARKET OPPORTUNITY & URGENCY -->
+    <div class="slide">
+        <div class="slide-number">Slide 3</div>
+        <h2>Market Opportunity & Time Urgency</h2>
+        <div class="two-col">
+            <div>
+                <h3>Solar ATAP + SURIA Home = Perfect Storm</h3>
+                <ul>
+                    <li><strong>Solar ATAP</strong> (Jan 2026): No quota limits, simplified process for residential</li>
+                    <li><strong>SURIA Home rebate</strong> (May 2026): Up to RM3,000 cash back per homeowner</li>
+                    <li>50,000 household allocation — first come, first served</li>
+                    <li>Most accessible the residential solar market has ever been</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Southern Residential Potential</h3>
+                <ul>
+                    <li>High density of landed homes (terrace, semi-D, bungalow)</li>
+                    <li>Strong referral culture (52% of deals from referrals)</li>
+                    <li>Melaka: Less competitor saturation, strong community networks</li>
+                    <li>2025 YTD: 6.4 NOC/month, RM168K NOB/month with only 4 SCs</li>
+                </ul>
+            </div>
+        </div>
+        <div class="risk-box">
+            <strong>SURIA Deadline: 31 December 2026</strong> — Systems must be installed and commissioned by this date. With 4–8 week installation timelines, leads generated Aug–Oct feed directly into the SURIA window. <strong>Every month we delay = lost rebate-eligible deals.</strong>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: THE PROPOSAL -->
+    <div class="slide">
+        <div class="slide-number">Slide 4</div>
+        <h2>The Proposal: Controlled 6-Month Pilot Experiment</h2>
+        <p>Deploy <strong>2 Sales Interns + 1 Contract Sales Consultant</strong> as a controlled experiment to test an alternative talent pipeline and market penetration model.</p>
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="metric-value">3</div>
+                <div class="metric-label">Total Headcount (Contract)</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">6 Mo</div>
+                <div class="metric-label">Pilot Duration</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">3</div>
+                <div class="metric-label">Decision Gates</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">Feb 2027</div>
+                <div class="metric-label">Candidate Availability</div>
+            </div>
+        </div>
+        <table>
+            <thead><tr><th>Role</th><th>Location</th><th>Focus</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Contract Sales Consultant</strong></td><td>Johor</td><td>Revenue generation — convert company-provided leads, self-source from Month 3</td></tr>
+                <tr><td><strong>Sales Intern 1</strong></td><td>Johor</td><td>Lead generation, neighbourhood blitz, market activation, SC pipeline development</td></tr>
+                <tr><td><strong>Sales Intern 2</strong></td><td>Melaka</td><td>Lead generation, event support, community activation, SC pipeline development</td></tr>
+            </tbody>
+        </table>
+        <div class="highlight-box">
+            <strong>This is NOT a permanent structure change.</strong> It is a controlled experiment with clear exit points at Month 2, Month 4, and Month 6. If it doesn't work, we stop. If it works, we scale.
+        </div>
+    </div>
+    <!-- SLIDE 5: REMUNERATION — MARKET BENCHMARKED -->
+    <div class="slide">
+        <div class="slide-number">Slide 5</div>
+        <h2>Remuneration: Market-Benchmarked, Lean & Fair</h2>
+        <p>Rates benchmarked against Indeed, PayScale, and Glassdoor Malaysia data (July 2026). Designed to be the minimum competitive offering while remaining attractive to available candidates.</p>
+        
+        <h3>Contract Sales Consultant</h3>
+        <table>
+            <thead><tr><th>Component</th><th>Amount</th><th>Market Justification</th></tr></thead>
+            <tbody>
+                <tr><td>Fixed monthly allowance</td><td><strong>RM2,000</strong></td><td>Below JB SC avg (RM2,707); justified by company-provided leads</td></tr>
+                <tr><td>Commission (company leads)</td><td><strong>1.5% of NOB</strong></td><td>RM420/deal at RM28K ACP — lower than property (2–3%) because leads are provided</td></tr>
+                <tr><td>Commission (self-generated)</td><td><strong>3% of NOB</strong></td><td>RM840/deal — competitive with insurance/property for self-sourced</td></tr>
+                <tr><td>NOC kicker</td><td><strong>RM400 for 4+ NOC/month</strong></td><td>Pushes from acceptable to strong performance</td></tr>
+                <tr><td>Quarterly bonus</td><td><strong>RM1,000</strong></td><td>For sustained 4+ NOC/month over quarter</td></tr>
+            </tbody>
+        </table>
+
+        <h3 style="margin-top:1.5rem;">Sales Interns (×2)</h3>
+        <table>
+            <thead><tr><th>Component</th><th>Amount</th><th>Market Justification</th></tr></thead>
+            <tbody>
+                <tr><td>Base allowance</td><td><strong>RM1,000/month</strong></td><td>67–100% above MySIP guideline (RM500–600); covers transport + meals</td></tr>
+                <tr><td>Qualified lead incentive</td><td><strong>RM15/accepted lead</strong></td><td>20 leads = RM300. Motivates quality lead generation</td></tr>
+                <tr><td>Appointment attended</td><td><strong>RM30/appointment</strong></td><td>Market norm RM25–50 for appointment setters</td></tr>
+                <tr><td>Closed-won support</td><td><strong>RM100/case</strong></td><td>Recognition, not commission — below any SC credit</td></tr>
+                <tr><td>Monthly discipline bonus</td><td><strong>RM200/month</strong></td><td>CRM + activity + learning targets hit</td></tr>
+            </tbody>
+        </table>
+        <h3 style="margin-top:1.5rem;">Earnings Projection vs Market</h3>
+        <table>
+            <thead><tr><th>Performance Level</th><th>Contract SC Monthly</th><th>Intern Monthly</th><th>Market Comparison</th></tr></thead>
+            <tbody>
+                <tr><td>Below minimum</td><td>RM2,420</td><td>RM1,000</td><td>Below market — exit triggered</td></tr>
+                <tr><td>Minimum acceptable</td><td>RM2,840–3,260</td><td>RM1,300–1,500</td><td>At JB SC avg / At intern avg</td></tr>
+                <tr><td><strong>Healthy target</strong></td><td><strong>RM4,080–4,500</strong></td><td><strong>RM1,700–2,000</strong></td><td>At Senior SC level / Above intern market</td></tr>
+                <tr><td>Strong</td><td>RM5,000–5,500</td><td>RM2,000+</td><td>Competitive with insurance/RE agents</td></tr>
+            </tbody>
+        </table>
+        <div class="highlight-box">
+            <strong>Win-Win:</strong> Candidates earn at-or-above market if they perform. Verdant only pays meaningful commission when revenue arrives. Fixed cost exposure is minimal (RM4,000/month total for all 3 hires).
+        </div>
+    </div>
+
+    <!-- SLIDE 6: COST & ROI -->
+    <div class="slide">
+        <div class="slide-number">Slide 6</div>
+        <h2>Cost Structure & Expected ROI</h2>
+        <div class="two-col">
+            <div>
+                <h3>Monthly Cost (All-In at Target)</h3>
+                <table>
+                    <tbody>
+                        <tr><td>Contract SC fixed</td><td><strong>RM2,000</strong></td></tr>
+                        <tr><td>2× Intern base</td><td><strong>RM2,000</strong></td></tr>
+                        <tr><td>Intern incentives (est.)</td><td>RM600–1,000</td></tr>
+                        <tr><td>Contract SC commission (3 NOC)</td><td>RM1,260</td></tr>
+                        <tr><td>Training & materials</td><td>RM400</td></tr>
+                        <tr style="font-weight:700; border-top:2px solid var(--primary);">
+                            <td>Total monthly (target)</td><td><strong>RM6,260–6,660</strong></td>
+                        </tr>
+                        <tr style="font-weight:700;">
+                            <td>Total 6-month pilot</td><td><strong>RM37,500–40,000</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h3>Revenue Potential (Contract SC)</h3>
+                <table>
+                    <tbody>
+                        <tr><td>Conservative (2–3 NOC/mo)</td><td><strong>RM56K–84K/month</strong></td></tr>
+                        <tr><td>Target (4–5 NOC/mo)</td><td><strong>RM112K–140K/month</strong></td></tr>
+                        <tr><td>Strong (6+ NOC/mo)</td><td><strong>RM168K+/month</strong></td></tr>
+                        <tr style="font-weight:700; border-top:2px solid var(--primary);">
+                            <td>5-month revenue window</td><td><strong>RM280K–700K NOB</strong></td>
+                        </tr>
+                        <tr style="font-weight:700;">
+                            <td>Pilot ROI</td><td><strong>7×–18× return</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="highlight-box">
+            <strong>Validated baseline:</strong> Current Southern ACP = RM27,625 (85 closed projects, Mar 2024–May 2025). Top SC averages 2.14 NOC/month. A Contract SC with company-provided leads should match or exceed this by Month 3–4.
+        </div>
+        <p style="margin-top:1rem; font-size:0.9rem; color:var(--text-light);">
+            <strong>Context:</strong> Total 6-month pilot cost (RM37K–40K) is less than 2 months of a single underperforming full-time SC hire (salary RM3,500 + EPF + SOCSO + benefits ≈ RM5,000/month × 6 = RM30K — with zero performance guarantee and no exit clause).
+        </p>
+    </div>
+
+    <!-- SLIDE 7: DESIRED OUTCOMES -->
+    <div class="slide">
+        <div class="slide-number">Slide 7</div>
+        <h2>Desired Outcomes</h2>
+        <div class="two-col">
+            <div>
+                <h3>Immediate (Within Pilot)</h3>
+                <ul>
+                    <li><strong>Revenue contribution:</strong> Contract SC generates RM56K–140K+ NOB/month from Month 2 onwards</li>
+                    <li><strong>SURIA capture:</strong> Maximise rebate-eligible deals before 31 Dec 2026 deadline</li>
+                    <li><strong>Lead pipeline:</strong> Interns generate 20–30 leads/month each, feeding existing SCs too</li>
+                    <li><strong>Market activation:</strong> Ground-level presence in neighbourhoods, events, and community channels</li>
+                    <li><strong>Melaka depth:</strong> Reduce single-SC dependency risk</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Strategic (Post-Pilot)</h3>
+                <ul>
+                    <li><strong>Talent pipeline:</strong> Validated pathway from intern → Junior SC → SC</li>
+                    <li><strong>Hiring model:</strong> Proven alternative to traditional full-time SC recruitment</li>
+                    <li><strong>Repeatable playbook:</strong> If successful, deploy in other markets facing similar constraints</li>
+                    <li><strong>Reduced dependency:</strong> Less reliance on a small number of performers</li>
+                    <li><strong>Data-driven decisions:</strong> Clear performance data on contract-vs-permanent hiring effectiveness</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: EXPECTED IMPACT -->
+    <div class="slide">
+        <div class="slide-number">Slide 8</div>
+        <h2>Expected Impact</h2>
+        <div class="metric-grid">
+            <div class="metric-card">
+                <div class="metric-value">+RM280K–700K</div>
+                <div class="metric-label">Additional NOB (5-month window)</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">+40–60</div>
+                <div class="metric-label">New Leads/Month (Intern-Generated)</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">7×–18×</div>
+                <div class="metric-label">Projected Pilot ROI</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">2–3</div>
+                <div class="metric-label">Potential SC Pipeline Candidates</div>
+            </div>
+        </div>
+        <table>
+            <thead><tr><th>Impact Area</th><th>Without Pilot</th><th>With Pilot</th></tr></thead>
+            <tbody>
+                <tr><td>Southern sales capacity</td><td>4 SCs, static, no bench</td><td>4 SCs + 1 Contract SC + 2 lead generators</td></tr>
+                <tr><td>SURIA rebate capture</td><td>Limited by existing capacity only</td><td>Accelerated through additional sales + lead activity</td></tr>
+                <tr><td>Melaka business continuity</td><td>1 SC — single point of failure</td><td>1 SC + 1 Intern generating leads + pipeline candidate</td></tr>
+                <tr><td>Talent pipeline</td><td>Zero — relying on market to produce candidates</td><td>2 candidates being developed for SC conversion</td></tr>
+                <tr><td>Direct lead channel</td><td>8% of deals (underserved)</td><td>Targeted activation through neighbourhood blitz + digital</td></tr>
+                <tr><td>Hiring approach</td><td>Traditional — slow, expensive, uncertain</td><td>Testing contract + intern model as alternative</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SLIDE 9: DECISION GATES -->
+    <div class="slide">
+        <div class="slide-number">Slide 9</div>
+        <h2>Decision Gates: Clear Exit Points</h2>
+        <p>The pilot includes built-in checkpoints to <strong>continue, adjust, or stop</strong> — protecting downside risk.</p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <strong>Month 2 — First Performance Gate</strong>
+                <span>Contract SC: ≥1 NOC, ≥80% contact rate, CRM discipline. Interns: Activity targets met, coachability confirmed.</span><br>
+                <span class="tag tag-green">Continue</span> <span class="tag tag-amber">Adjust</span> <span class="tag tag-red">Exit Individual / Pilot</span>
+            </div>
+            <div class="timeline-item">
+                <strong>Month 4 — Second Performance Gate</strong>
+                <span>Contract SC: Sustained 2–3 NOC/month, self-gen started. Interns: 10+ qualified leads/month, pitch-ready.</span><br>
+                <span class="tag tag-green">Continue</span> <span class="tag tag-amber">Adjust Targets</span> <span class="tag tag-red">Exit Individual / Pilot</span>
+            </div>
+            <div class="timeline-item">
+                <strong>Month 6 — Final Decision Gate</strong>
+                <span>Full assessment: Convert Contract SC to full-time? Offer interns Junior SC role? Scale model to other markets?</span><br>
+                <span class="tag tag-green">Scale</span> <span class="tag tag-amber">Repeat / Adjust</span> <span class="tag tag-red">Stop</span>
+            </div>
+        </div>
+        <div class="highlight-box">
+            <strong>Maximum downside exposure:</strong> If pilot fails at Month 2 gate, total cost = ~RM13,000 (2 months). This is less than one wrong full-time hire's first-month all-in cost.
+        </div>
+    </div>
+    <!-- SLIDE 10: RISKS & MITIGATIONS -->
+    <div class="slide">
+        <div class="slide-number">Slide 10</div>
+        <h2>Key Risks & Controls</h2>
+        <table>
+            <thead><tr><th>Risk</th><th>Impact</th><th>Control Measure</th></tr></thead>
+            <tbody>
+                <tr><td>Brand risk — misrepresentation by contract hire</td><td>High</td><td>Progressive authority model. Supervised pitching M1–2. Pricing approval gates. Script compliance.</td></tr>
+                <tr><td>Cost without ROI</td><td>Medium</td><td>Performance gates at M2/M4. Exit clauses. Low fixed cost (RM4K/month). Only pay commission on revenue.</td></tr>
+                <tr><td>Team resistance from existing SCs</td><td>Medium</td><td>Separate incentive pool. Zero deduction from SC commission. Clear communication. Mentor bonus.</td></tr>
+                <tr><td>Commission/lead ownership conflict</td><td>High</td><td>Written lead ownership rules. CRM tagging. Separate pools. No ambiguity.</td></tr>
+                <tr><td>Contract SC leaves mid-pilot</td><td>Medium</td><td>Competitive target earnings. Conversion pathway. 2-week notice. Pipeline handover SOP.</td></tr>
+                <tr><td>Intern quality insufficient</td><td>Medium</td><td>Rigorous scorecard selection. 2-week probation. Monthly checkpoints. Exit non-performers early.</td></tr>
+            </tbody>
+        </table>
+        <p style="margin-top:1rem; font-size:0.9rem; color:var(--text-light);">Full risk register with 15 identified risks and control measures available in the detailed Management Review Pack.</p>
+    </div>
+
+    <!-- SLIDE 11: TIMELINE -->
+    <div class="slide">
+        <div class="slide-number">Slide 11</div>
+        <h2>6-Month Roadmap</h2>
+        <table>
+            <thead><tr><th>Month</th><th>Focus</th><th>Key Milestones</th><th>SURIA Alignment</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Aug 2026</strong></td><td>Onboarding & Training</td><td>All 3 hires active. Product training. CRM discipline. First leads assigned.</td><td>Pipeline building begins</td></tr>
+                <tr><td><strong>Sep 2026</strong></td><td>Qualification & Activation</td><td><span class="tag tag-amber">GATE 1</span> Interns generating leads. Contract SC first closings.</td><td>First SURIA-eligible proposals</td></tr>
+                <tr><td><strong>Oct 2026</strong></td><td>Closing & Self-Gen</td><td>Contract SC at 2–3 NOC. Self-sourced leads begin. Intern pitch practice.</td><td>Peak SURIA submission window</td></tr>
+                <tr><td><strong>Nov 2026</strong></td><td>Performance Push</td><td><span class="tag tag-amber">GATE 2</span> Contract SC 4–5 NOC target. Interns supervised closing.</td><td>Final SURIA installations</td></tr>
+                <tr><td><strong>Dec 2026</strong></td><td>Revenue Sprint</td><td>All resources at full capacity. Neighbourhood blitz. Referral push.</td><td><span class="tag tag-red">SURIA DEADLINE</span></td></tr>
+                <tr><td><strong>Jan 2027</strong></td><td>Assessment & Decision</td><td><span class="tag tag-green">GATE 3</span> Convert? Scale? Stop? Full pilot review.</td><td>Post-SURIA evaluation</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- SLIDE 12: APPROVAL ASK -->
+    <div class="slide">
+        <div class="slide-number">Slide 12</div>
+        <h2>What We Need: Approval Summary</h2>
+        <table>
+            <thead><tr><th>#</th><th>Item</th><th>Budget Impact</th><th>Recommendation</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>Approval to run 6-month pilot experiment</td><td>RM37K–40K total</td><td><span class="tag tag-green">Approve</span></td></tr>
+                <tr><td>2</td><td>Headcount: 2 Sales Interns + 1 Contract SC</td><td>3 contract positions</td><td><span class="tag tag-green">Approve</span></td></tr>
+                <tr><td>3</td><td>Remuneration structure (market-benchmarked)</td><td>As per Slide 5</td><td><span class="tag tag-green">Approve</span></td></tr>
+                <tr><td>4</td><td>Lead allocation: 40–60 qualified leads/month for Contract SC</td><td>Opportunity cost</td><td><span class="tag tag-green">Approve</span></td></tr>
+                <tr><td>5</td><td>Decision gates at Month 2, 4, 6</td><td>Management time</td><td><span class="tag tag-green">Approve</span></td></tr>
+                <tr><td>6</td><td>HR to proceed with offers to identified candidates</td><td>Immediate action</td><td><span class="tag tag-green">Approve</span></td></tr>
+            </tbody>
+        </table>
+        <div class="cta-box" style="margin-top:2rem;">
+            <h3>Recommendation: APPROVE — Controlled Experiment</h3>
+            <p style="margin-top:0.75rem;">Southern's hiring challenge is structural, not temporary. The SURIA rebate window closes 31 Dec 2026. Identified candidates are available until Feb 2027. This pilot tests an alternative model with clear exit points, minimal fixed cost, and significant revenue upside.</p>
+        </div>
+    </div>
+
+    <!-- SLIDE 13: KEY ARGUMENTS -->
+    <div class="slide">
+        <div class="slide-number">Slide 13</div>
+        <h2>Why Now — The Case for Urgency</h2>
+        <div class="metric-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="metric-card" style="border-color: var(--red); border-width: 2px;">
+                <div class="metric-value" style="color:var(--red);">31 Dec</div>
+                <div class="metric-label">SURIA Rebate Deadline</div>
+            </div>
+            <div class="metric-card" style="border-color: var(--amber); border-width: 2px;">
+                <div class="metric-value" style="color:var(--amber);">Feb 2027</div>
+                <div class="metric-label">Candidate Availability Ends</div>
+            </div>
+            <div class="metric-card" style="border-color: var(--primary); border-width: 2px;">
+                <div class="metric-value" style="color:var(--primary);">RM3,000</div>
+                <div class="metric-label">Per-Homeowner Rebate (limited)</div>
+            </div>
+        </div>
+        <div class="two-col">
+            <div>
+                <h3>If We Act Now (Aug 2026 Start)</h3>
+                <ul>
+                    <li>5 months of SURIA-eligible selling activity</li>
+                    <li>Contract SC productive from Month 2 (Sep) — 4 months of revenue</li>
+                    <li>Captures peak homeowner interest (rebate awareness rising)</li>
+                    <li>Candidates secured during their availability window</li>
+                    <li>Full pilot completed before candidate departure (Feb 2027)</li>
+                </ul>
+            </div>
+            <div>
+                <h3>If We Delay (Oct 2026 Start)</h3>
+                <ul>
+                    <li>Only 3 months of SURIA-eligible activity remaining</li>
+                    <li>Contract SC barely productive before deadline</li>
+                    <li>Candidates may take other opportunities</li>
+                    <li>Compressed timeline = less data for decisions</li>
+                    <li>Miss the single best selling period in Southern solar history</li>
+                </ul>
+            </div>
+        </div>
+        <div class="urgency-box" style="margin-top:1.5rem;">
+            <strong>Bottom line:</strong> We have the right candidates, the right market window (SURIA + Solar ATAP), and a controlled experiment design. The only variable is speed of approval. A 1-month delay costs approximately RM56K–140K in unrealised NOB.
+        </div>
+    </div>
+
+    <!-- SLIDE 14: APPENDIX SUMMARY -->
+    <div class="slide">
+        <div class="slide-number">Appendix</div>
+        <h2>Supporting Documentation Available</h2>
+        <p>The full Management Review Pack includes:</p>
+        <div class="two-col">
+            <div>
+                <ul>
+                    <li>Complete Job Descriptions (Intern + Contract SC)</li>
+                    <li>3-Model Remuneration Comparison</li>
+                    <li>KPI Dashboard Structure</li>
+                    <li>Market Deep Dive (Johor & Melaka)</li>
+                    <li>Lead Source Analysis (validated from CRM data)</li>
+                    <li>Candidate Scoring Criteria</li>
+                    <li>Interview Question Banks</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>Full Risk Register (15 risks)</li>
+                    <li>Detailed 6-Month Implementation Roadmap</li>
+                    <li>Commission/Credit Sharing Rules</li>
+                    <li>Contract Structure Recommendations</li>
+                    <li>Sourcing Strategy (channels + positioning)</li>
+                    <li>Data Validation (Monday.com extraction)</li>
+                    <li>Progressive Authority & CRM Access Models</li>
+                </ul>
+            </div>
+        </div>
+        <p style="margin-top:1.5rem; font-size:0.9rem; color:var(--text-light);">
+            <strong>Data sources:</strong> Monday.com Board 530233143 (85 closed projects, Mar 2024–May 2025), Indeed Malaysia, PayScale, Glassdoor, Government MySIP programme, SURIA Home (PETRA), Solar ATAP guidelines.
+        </p>
+    </div>
+
+    <div class="footer-note">
+        <p><strong>Verdant Solar</strong> — Southern Sales Talent Pipeline Pilot — COO Briefing</p>
+        <p>Prepared July 2026 | Classification: Internal — Higher Management Review</p>
+        <p style="margin-top:0.5rem;">For questions: BUH South / Strategy Team</p>
+    </div>
+
+</div>
+</body>
+</html>
